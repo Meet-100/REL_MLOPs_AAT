@@ -44,32 +44,48 @@ def save_training_plots(history, plots_dir, policy_version):
     os.makedirs(plots_dir, exist_ok=True)
     df = pd.DataFrame(history)
     
+    # Preprocessing: Calculate consistent rolling averages for visualization
+    window = 100
+    if 'reward' in df.columns:
+        df['viz_mv_reward'] = df['reward'].rolling(window=window, min_periods=1).mean()
+    if 'shortage' in df.columns:
+        df['viz_mv_shortage'] = df['shortage'].rolling(window=window, min_periods=1).mean()
+    
     # 1. Reward & Moving Average
-    plt.figure(figsize=(10, 6))
-    plt.plot(df['episode'], df['reward'], alpha=0.3, color='blue', label='Episode Reward')
-    plt.plot(df['episode'], df['moving_avg_reward'], color='red', linewidth=2, label='Moving Avg (50)')
-    plt.title(f"Training Reward: {policy_version}")
-    plt.xlabel("Episode")
-    plt.ylabel("Total Reward")
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    plot_path = os.path.join(plots_dir, f"reward_{policy_version}.png")
-    plt.savefig(plot_path)
-    plt.close()
-    mlflow.log_artifact(plot_path)
+    if 'reward' in df.columns and 'episode' in df.columns:
+        plt.figure(figsize=(10, 6))
+        plt.plot(df['episode'], df['reward'], alpha=0.3, color='blue', label='Episode Reward')
+        mv_col = 'viz_mv_reward' if 'viz_mv_reward' in df.columns else 'moving_avg_reward'
+        if mv_col in df.columns:
+            plt.plot(df['episode'], df[mv_col], color='red', linewidth=2, label=f'Moving Avg ({window})')
+        
+        plt.title(f"Training Reward: {policy_version}")
+        plt.xlabel("Episode")
+        plt.ylabel("Total Reward")
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        plot_path = os.path.join(plots_dir, f"reward_{policy_version}.png")
+        plt.savefig(plot_path)
+        plt.close()
+        mlflow.log_artifact(plot_path)
 
     # 2. Shortage Progress
-    plt.figure(figsize=(10, 6))
-    plt.plot(df['episode'], df['moving_avg_shortage'], color='orange', label='Avg Shortage')
-    plt.title(f"Shortage Reduction: {policy_version}")
-    plt.xlabel("Episode")
-    plt.ylabel("Water Shortage")
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    shortage_plot_path = os.path.join(plots_dir, f"shortage_{policy_version}.png")
-    plt.savefig(shortage_plot_path)
-    plt.close()
-    mlflow.log_artifact(shortage_plot_path)
+    if 'shortage' in df.columns and 'episode' in df.columns:
+        plt.figure(figsize=(10, 6))
+        mv_shortage_col = 'viz_mv_shortage'
+        plt.plot(df['episode'], df['shortage'], alpha=0.3, color='orange', label='Episode Shortage')
+        if mv_shortage_col in df.columns:
+            plt.plot(df['episode'], df[mv_shortage_col], color='darkorange', linewidth=2, label=f'Moving Avg ({window})')
+        
+        plt.title(f"Shortage Reduction: {policy_version}")
+        plt.xlabel("Episode")
+        plt.ylabel("Water Shortage")
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        shortage_plot_path = os.path.join(plots_dir, f"shortage_{policy_version}.png")
+        plt.savefig(shortage_plot_path)
+        plt.close()
+        mlflow.log_artifact(shortage_plot_path)
 
 def run_experiment(config, policy_version, exp_params):
     exp_name = exp_params['name']
@@ -91,7 +107,7 @@ def run_experiment(config, policy_version, exp_params):
             "episodes": config['training']['episodes'],
             "epsilon_decay": config['agent']['epsilon_decay'],
             "leakage_rate": config['environment'].get('leakage_rate', 0.15),
-            "reward_weights": config['environment'].get('reward_weights')
+            "reward_weights": str(config['environment'].get('reward_weights'))
         })
         
         seed = config['agent'].get('seed', 42)
