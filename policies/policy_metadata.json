@@ -1,18 +1,18 @@
 {
     "policy_v1": {
-        "run_id": "e2ccf24d01b24150aed44eb135682e16",
+        "run_id": "920678865667458e9de3975662520c17",
         "policy_version": "policy_v1",
-        "final_avg_reward": -1875.4388628250279,
-        "convergence_episode": -1,
-        "learned_states": 134,
-        "training_duration": 0.04846978187561035
+        "final_avg_reward": -1353.0983066352328,
+        "convergence_episode": 152,
+        "learned_states": 323,
+        "training_duration": 111.15586376190186
     },
     "policy_v2": {
-        "run_id": "f9719541fcba4e13a4ad0c74b56175df",
+        "run_id": "0b8e7ea48ab34cda8bc90a50c5dc9fe5",
         "policy_version": "policy_v2",
-        "final_avg_reward": -1875.4388628250279,
-        "convergence_episode": -1,
-        "learned_states": 134,
-        "training_duration": 0.04648637771606445
+        "final_avg_reward": -1374.1490080168483,
+        "convergence_episode": 152,
+        "learned_states": 324,
+        "training_duration": 106.04444408416748
     }
 }

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/acer/OneDrive/Desktop/REL_MLOPs_AAT/mlruns/117863824571874857/920678865667458e9de3975662520c17/artifacts
+end_time: 1778824314730
+entry_point_name: ''
+experiment_id: '117863824571874857'
+lifecycle_stage: active
+run_id: 920678865667458e9de3975662520c17
+run_name: policy_v1_Standard Learning
+run_uuid: 920678865667458e9de3975662520c17
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778824201983
+status: 3
+tags: []
+user_id: acer
