@@ -20,16 +20,16 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Create necessary directories
-RUN mkdir -p results/plots logs policies
+RUN mkdir -p results/plots logs policies mlruns
 
 # Make startup script executable
 RUN chmod +x start.sh
 
-# Expose ports for Streamlit (8501) and FastAPI (8000)
-EXPOSE 8501 8000
+# Expose ports for Streamlit (8501), FastAPI (8000), and MLflow (5000)
+EXPOSE 8501 8000 5000
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 
-# Launch both services using the startup script
+# Launch all services using the startup script
 CMD ["./start.sh"]

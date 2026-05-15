@@ -8,10 +8,12 @@ services:
     ports:
       - "8501:8501" # Streamlit Dashboard
       - "8000:8000" # FastAPI Inference API
+      - "5000:5000" # MLflow UI
     volumes:
       - ./results:/app/results
       - ./logs:/app/logs
       - ./policies:/app/policies
+      - ./mlruns:/app/mlruns
     environment:
       - STREAMLIT_THEME_BASE=light
     restart: unless-stopped
