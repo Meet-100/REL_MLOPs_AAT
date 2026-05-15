@@ -6,3 +6,6 @@ pyyaml
 streamlit
 plotly
 tabulate
+fastapi
+uvicorn
+pydantic

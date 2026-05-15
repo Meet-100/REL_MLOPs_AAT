@@ -1,0 +1,57 @@
+name: MLOps Automation Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Basic Validation (Linting)
+      run: |
+        # Simple syntax check
+        python -m compileall .
+
+    - name: Run Training Pipeline (Smoke Test)
+      run: |
+        # Run a very short training to verify the pipeline works
+        # We override episodes in the config temporarily for CI speed
+        python -c "import yaml; c=yaml.safe_load(open('configs/qlearning.yaml')); c['training']['episodes']=10; yaml.dump(c, open('configs/qlearning.yaml','w'))"
+        python train.py
+
+    - name: Run Evaluation Script
+      run: |
+        # Verify evaluation and report generation works
+        python evaluate.py
+
+    - name: Verify Streamlit App Imports
+      run: |
+        # Ensure the streamlit app can at least be imported/parsed
+        python -c "import streamlit_app"
+
+    - name: Verify FastAPI App Imports
+      run: |
+        # Ensure the API service can be imported/parsed
+        python -c "import api"
+
+    - name: Build Docker Image
+      run: |
+        # Verify Dockerfile is valid and builds successfully
+        docker build -t water-rl-ci .
