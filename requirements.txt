@@ -1,5 +1,8 @@
 numpy
 pandas
 matplotlib
+seaborn
 pyyaml
+streamlit
+plotly
 tabulate

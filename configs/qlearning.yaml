@@ -1,24 +1,57 @@
-# Reinforcement Learning Configuration
+# Reinforcement Learning Configuration for Adaptive Water Distribution
 agent:
   seed: 42
-  learning_rate: 0.1
+  alpha: 0.1
   gamma: 0.95
   epsilon: 1.0
-  epsilon_decay: 0.995
-  epsilon_min: 0.01
+  epsilon_decay: 0.999 # Slower decay for larger state space (8x6x6x6)
+  min_epsilon: 0.01
 
 environment:
   max_steps: 100
-  tank_capacity: 100
+  reservoir_capacity: 100
   refill_amount: 30
-  demand_range: [5, 25]
+  
+  demand_ranges:
+    normal: [5, 20]
+    peak: [25, 45]
+    uneven: [[5, 10], [15, 25], [35, 50]]
+    shortage: [20, 40] 
+    extreme: [5, 60]   
+    
+  scenario_refills:
+    normal: 30
+    peak: 15
+    uneven: 25
+    shortage: 3 # Extreme scarcity
+    extreme: 5
+    
+  leakage_rate: 0.15 # Higher leakage to penalize greedy allocation
+  reward_weights:
+    shortage: 1.5 
+    wastage: 1.0
+    overflow: 3.0
 
 training:
-  episodes: 1000
-  save_path: "policies/policy_v1.pkl"
-  log_path: "logs/training_logs.csv"
+  episodes: 15000 # Larger state space requires more exploration episodes
+  moving_avg_window: 50
+  experiments:
+    policy_v1:
+      name: "Standard Learning"
+      alpha: 0.1
+      gamma: 0.95
+    policy_v2:
+      name: "Aggressive Learning"
+      alpha: 0.2
+      gamma: 0.99
+  output_paths:
+    policy_dir: "policies"
+    logs_dir: "logs"
+    plots_dir: "results/plots"
+    results_dir: "results"
 
 evaluation:
-  test_episodes: 50
-  plots_dir: "results/plots/"
+  test_episodes: 100 
+  seed: 123 
+  plots_dir: "results/plots"
   report_path: "results/evaluation_report.md"

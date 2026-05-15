@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  water-rl-app:
+    build: .
+    image: water-rl:latest
+    container_name: water-rl-container
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./results:/app/results
+      - ./logs:/app/logs
+      - ./policies:/app/policies
+    environment:
+      - STREAMLIT_THEME_BASE=light
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

@@ -22,5 +22,203 @@
         "avg_reward": -1433.5070211436437,
         "avg_shortage": 1432.9970211436437,
         "avg_wastage": 0.51
+    },
+    {
+        "run_id": "run_policy_v1_20260514_185326",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -2083.8201583333334,
+        "final_avg_shortage": 1601.8845416666666,
+        "convergence_episode": -1,
+        "learned_states": 242,
+        "training_duration": 0.29764223098754883
+    },
+    {
+        "run_id": "run_policy_v2_20260514_185327",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -2083.220388888889,
+        "final_avg_shortage": 1602.2769444444443,
+        "convergence_episode": -1,
+        "learned_states": 243,
+        "training_duration": 0.3173794746398926
+    },
+    {
+        "run_id": "run_policy_v1_20260514_185656",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -2081.554715277778,
+        "final_avg_shortage": 1603.9642013888888,
+        "convergence_episode": 152,
+        "learned_states": 254,
+        "training_duration": 1.6278636455535889
+    },
+    {
+        "run_id": "run_policy_v2_20260514_185658",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -2103.3057000000003,
+        "final_avg_shortage": 1613.781,
+        "convergence_episode": 152,
+        "learned_states": 255,
+        "training_duration": 1.7145302295684814
+    },
+    {
+        "run_id": "run_policy_v1_20260514_190730",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -1453.2083333333333,
+        "final_avg_shortage": 858.4966666666667,
+        "convergence_episode": -1,
+        "learned_states": 106,
+        "training_duration": 0.0557398796081543
+    },
+    {
+        "run_id": "run_policy_v2_20260514_190731",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -1453.2083333333333,
+        "final_avg_shortage": 858.4966666666667,
+        "convergence_episode": -1,
+        "learned_states": 106,
+        "training_duration": 0.057267189025878906
+    },
+    {
+        "run_id": "run_policy_v1_20260514_193754",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -1402.5250347222222,
+        "final_avg_shortage": 829.3805694444445,
+        "convergence_episode": 152,
+        "learned_states": 108,
+        "training_duration": 19.56636333465576
+    },
+    {
+        "run_id": "run_policy_v2_20260514_193816",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -1413.406875,
+        "final_avg_shortage": 833.72075,
+        "convergence_episode": 152,
+        "learned_states": 108,
+        "training_duration": 20.792780876159668
+    },
+    {
+        "run_id": "run_policy_v1_20260514_194839",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -1347.6879166666665,
+        "final_avg_shortage": 1012.1689000000001,
+        "convergence_episode": 152,
+        "learned_states": 108,
+        "training_duration": 37.45227265357971
+    },
+    {
+        "run_id": "run_policy_v2_20260514_194919",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -1349.7124583333334,
+        "final_avg_shortage": 1013.2406500000001,
+        "convergence_episode": 152,
+        "learned_states": 108,
+        "training_duration": 39.2125825881958
+    },
+    {
+        "run_id": "run_policy_v1_20260514_195220",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -823.66625,
+        "final_avg_shortage": 981.4284999999999,
+        "convergence_episode": 152,
+        "learned_states": 108,
+        "training_duration": 76.1755964756012
+    },
+    {
+        "run_id": "run_policy_v2_20260514_195343",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -823.9555729166666,
+        "final_avg_shortage": 981.6368124999999,
+        "convergence_episode": 152,
+        "learned_states": 108,
+        "training_duration": 82.06242418289185
+    },
+    {
+        "run_id": "run_policy_v1_20260514_200109",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -823.66625,
+        "final_avg_shortage": 981.4284999999999,
+        "convergence_episode": 152,
+        "learned_states": 108,
+        "training_duration": 64.89932942390442
+    },
+    {
+        "run_id": "run_policy_v2_20260514_200305",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -823.9555729166666,
+        "final_avg_shortage": 981.6368124999999,
+        "convergence_episode": 152,
+        "learned_states": 108,
+        "training_duration": 114.69006562232971
+    },
+    {
+        "run_id": "run_policy_v1_20260514_202720",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -1353.0983066352328,
+        "final_avg_shortage": 1232.0470037204536,
+        "convergence_episode": 152,
+        "learned_states": 323,
+        "training_duration": 62.52071762084961
+    },
+    {
+        "run_id": "run_policy_v2_20260514_202829",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -1374.1490080168483,
+        "final_avg_shortage": 1238.416866986563,
+        "convergence_episode": 152,
+        "learned_states": 324,
+        "training_duration": 68.65040826797485
+    },
+    {
+        "run_id": "run_policy_v1_20260514_203402",
+        "policy_version": "policy_v1",
+        "alpha": 0.1,
+        "gamma": 0.95,
+        "final_avg_reward": -1353.0983066352328,
+        "final_avg_shortage": 1232.0470037204536,
+        "convergence_episode": 152,
+        "learned_states": 323,
+        "training_duration": 94.07465386390686
+    },
+    {
+        "run_id": "run_policy_v2_20260514_203504",
+        "policy_version": "policy_v2",
+        "alpha": 0.2,
+        "gamma": 0.99,
+        "final_avg_reward": -1374.1490080168483,
+        "final_avg_shortage": 1238.416866986563,
+        "convergence_episode": 152,
+        "learned_states": 324,
+        "training_duration": 61.1393187046051
     }
 ]
