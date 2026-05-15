@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/acer/OneDrive/Desktop/REL_MLOPs_AAT/mlruns/117863824571874857/d4dc80ee6bdc46d380ed80241cc65865/artifacts
+deleted_time: 1778826832623
 end_time: 1778823990603
 entry_point_name: ''
 experiment_id: '117863824571874857'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: d4dc80ee6bdc46d380ed80241cc65865
 run_name: policy_v1_Standard Learning
 run_uuid: d4dc80ee6bdc46d380ed80241cc65865
